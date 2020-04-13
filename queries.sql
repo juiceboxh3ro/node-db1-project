@@ -1,5 +1,6 @@
 -- Database Queries
 -- use brackets [] for invalid names, like spaces or reserved words
+-- DELETE FROM a WHERE x = y
 
 -- Find all customers with postal code 1010
 SELECT * FROM Customers WHERE PostcalCode = '1010';
@@ -19,8 +20,10 @@ INSERT INTO Customers (CustomerName, ContactName, [Address], City, PostalCode, C
 -- Update Bilbo Baggins record so that the postal code changes to "11122"
 UPDATE Customers set PostalCode = 11122 WHERE ContactName = 'Bilbo Baggins';
 
--- DELETE FROM a WHERE x = y
-
 -- (Stretch) Find a query to discover how many different cities are stored in the Customers table. Repeats should not be double counted
 
+SELECT COUNT(DISTINCT city) FROM Customers;
+
 -- (Stretch) Find all suppliers who have names longer than 20 characters. You can use `length(SupplierName)` to get the length of the name
+
+SELECT * FROM Suppliers WHERE length(suppliername) > 20;
